@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1034014053752",
+    "project_id": "drawerjetpackcompose",
+    "storage_bucket": "drawerjetpackcompose.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1034014053752:android:309db96c903ff8de9ba48d",
+        "android_client_info": {
+          "package_name": "ru.isaev.drawerjetpackcompose"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1034014053752-dka912cpmdjjiqet4ig1u6hasgvo3jgo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0wTvojBFyBTHAQZGXbGUACUuomRGU948"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1034014053752-dka912cpmdjjiqet4ig1u6hasgvo3jgo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
