@@ -27,9 +27,7 @@ fun DrawerAndTopMenu(
     drawerButtonClick: () -> Unit,
     scope: CoroutineScope,
     navController: NavHostController,
-    isAuth: MutableState<Boolean>,
     context: Context,
-    mAuth:FirebaseAuth
 ) {
 
 
@@ -47,7 +45,7 @@ fun DrawerAndTopMenu(
             Drawer(scope = scope, scaffoldState = scaffoldState, navController = navController)
         }
     ) {
-        Navigation(navController = navController, isAuth = isAuth, context = context, mAuth = mAuth)
+        Navigation(navController = navController)
 
     }
 }

@@ -2,30 +2,31 @@ package ru.isaev.drawerjetpackcompose.other
 
 import android.content.Context
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.google.firebase.auth.FirebaseAuth
+import ru.isaev.drawerjetpackcompose.helpers.Auth
 import ru.isaev.drawerjetpackcompose.helpers.NavDrawerItem
 import ru.isaev.drawerjetpackcompose.ui.screens.*
 import ru.isaev.drawerjetpackcompose.ui.screens.EnterPhoneNumberAndCodeScreen.EnterCodeScreen
-import ru.isaev.drawerjetpackcompose.ui.screens.EnterPhoneNumberAndCodeScreen.EnterPhoneScreenNumber
+import ru.isaev.drawerjetpackcompose.ui.screens.EnterPhoneNumberAndCodeScreen.EnterPhoneNumberScreen
+
 
 @Composable
-fun Navigation(navController: NavHostController, isAuth: MutableState<Boolean>, context: Context, mAuth: FirebaseAuth) {
+fun Navigation(navController: NavHostController) {
     NavHost(
-        navController = navController, startDestination = if (mAuth.currentUser != null) {
+        navController = navController, startDestination = if (Auth.currentUser != null) {
             NavDrawerItem.CreateChannel.route
         } else NavDrawerItem.EnterPhoneStartScreen.route
     ) {
 
         composable(route = NavDrawerItem.EnterCodeScreen.route) {
-            EnterCodeScreen(context, navController)
+            EnterCodeScreen(navController)
         }
 
         composable(route = NavDrawerItem.EnterPhoneStartScreen.route) {
-            EnterPhoneScreenNumber(navController, context = context, mAuth = mAuth)
+            EnterPhoneNumberScreen(navController)
         }
 
         composable(route = NavDrawerItem.CreateGroup.route) {

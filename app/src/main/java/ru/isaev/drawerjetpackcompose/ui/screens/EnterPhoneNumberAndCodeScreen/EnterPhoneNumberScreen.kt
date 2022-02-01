@@ -1,8 +1,5 @@
 package ru.isaev.drawerjetpackcompose.ui.screens.EnterPhoneNumberAndCodeScreen
 
-import android.content.Context
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.shape.CircleShape
@@ -16,45 +13,49 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.google.firebase.FirebaseException
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
-import ru.isaev.drawerjetpackcompose.activities.MainActivity
+import ru.isaev.drawerjetpackcompose.helpers.*
 import ru.isaev.drawerjetpackcompose.helpers.Colors
-import ru.isaev.drawerjetpackcompose.helpers.showToast
 import java.util.concurrent.TimeUnit
 
 
 @Composable
-fun AppCompatActivity.EnterPhoneScreenNumber(
-    navController: NavHostController,
-    context: Context,
-    mAuth: FirebaseAuth
+fun EnterPhoneNumberScreen(
+    navController: NavHostController
 ) {
     val phoneNumber = remember { mutableStateOf("") }
     val maxChar = 14
     val scaffoldState = rememberScaffoldState(rememberDrawerState(DrawerValue.Closed))
+    val context = LocalContext.current
+
     var mCallback: PhoneAuthProvider.OnVerificationStateChangedCallbacks =
         object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-            override fun onCodeAutoRetrievalTimeOut(p0: String) {
-                super.onCodeAutoRetrievalTimeOut(p0)
+
+            override fun onCodeSent(id: String, token: PhoneAuthProvider.ForceResendingToken) {
+                Sender.idString = id
+                Sender.mToken = token
+                navController.navigate("11")
             }
 
-            override fun onCodeSent(p0: String, p1: PhoneAuthProvider.ForceResendingToken) {
-                super.onCodeSent(p0, p1)
-            }
+            override fun onVerificationCompleted(credential: PhoneAuthCredential) {
+                Auth.signInWithCredential(credential).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        showToast(context = context,message = "Welcome")
 
-            override fun onVerificationCompleted(p0: PhoneAuthCredential) {
-                mAuth
+                    } else showToast(context = context ,message = it.exception?.message.toString())
+
+                }
             }
 
             override fun onVerificationFailed(p0: FirebaseException) {
-                showToast(p0.message.toString())
+                showToast(context = context, message = p0.message.toString())
             }
         }
 
@@ -66,14 +67,15 @@ fun AppCompatActivity.EnterPhoneScreenNumber(
                 onClick = {
                     if (phoneNumber.value.isNotEmpty() && phoneNumber.value.length >= 12) {
                         val options: PhoneAuthOptions = PhoneAuthOptions
-                            .newBuilder(mAuth)
+                            .newBuilder(Auth)
+                            .setPhoneNumber(phoneNumber.value)
                             .setTimeout(60, TimeUnit.SECONDS)
-                            .setActivity(MainActivity::class.java)
+                            .setActivity(getActivity)
                             .setCallbacks(mCallback)
-                            .
-//                        navController.navigate("11")
+                            .build()
+                        PhoneAuthProvider.verifyPhoneNumber(options)
                     } else {
-                        Toast.makeText(context, "Неверный формат ввода", Toast.LENGTH_SHORT).show()
+                        showToast(context = context, message = "Неверный формат ввода")
                     }
                 },
                 shape = CircleShape,
@@ -112,11 +114,6 @@ fun AppCompatActivity.EnterPhoneScreenNumber(
 
 
         }
-    }
-
-    fun authUser() {
-
-
     }
 
 }
