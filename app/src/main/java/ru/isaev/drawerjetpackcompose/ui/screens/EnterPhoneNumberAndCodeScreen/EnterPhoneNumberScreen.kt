@@ -35,7 +35,7 @@ fun EnterPhoneNumberScreen(
     val scaffoldState = rememberScaffoldState(rememberDrawerState(DrawerValue.Closed))
     val context = LocalContext.current
 
-    var mCallback: PhoneAuthProvider.OnVerificationStateChangedCallbacks =
+    val mCallback: PhoneAuthProvider.OnVerificationStateChangedCallbacks =
         object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
             override fun onCodeSent(id: String, token: PhoneAuthProvider.ForceResendingToken) {

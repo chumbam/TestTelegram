@@ -1,11 +1,9 @@
 package ru.isaev.drawerjetpackcompose.other
 
-import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.google.firebase.auth.FirebaseAuth
 import ru.isaev.drawerjetpackcompose.helpers.Auth
 import ru.isaev.drawerjetpackcompose.helpers.NavDrawerItem
 import ru.isaev.drawerjetpackcompose.ui.screens.*
@@ -30,31 +28,31 @@ fun Navigation(navController: NavHostController) {
         }
 
         composable(route = NavDrawerItem.CreateGroup.route) {
-            NewGroupScreen()
+            NewGroupScreen(navController)
         }
         composable(route = NavDrawerItem.CreateSecretChat.route) {
-            NewSecretChatScreen()
+            NewSecretChatScreen(navController)
         }
         composable(route = NavDrawerItem.CreateChannel.route) {
-            NewChannelScreen()
+            NewChannelScreen(navController)
         }
         composable(route = NavDrawerItem.Contacts.route) {
-            ContactsScreen()
+            ContactsScreen(navController)
         }
         composable(route = NavDrawerItem.Calls.route) {
-            CallsScreen()
+            CallsScreen(navController)
         }
         composable(route = NavDrawerItem.Favorites.route) {
-            FavoritesScreen()
+            FavoritesScreen(navController)
         }
         composable(route = NavDrawerItem.Settings.route) {
-            SettingScreen()
+            SettingScreen(navController)
         }
         composable(route = NavDrawerItem.InviteFriend.route) {
-            InviteFriendScreen()
+            InviteFriendScreen(navController)
         }
         composable(route = NavDrawerItem.TelegramFaq.route) {
-            TelegramFaqScreen()
+            TelegramFaqScreen(navController)
         }
 
 

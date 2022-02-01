@@ -35,8 +35,7 @@ class MainActivity : AppCompatActivity() {
                         }
                     },
                     scope = scope,
-                    navController = navController,
-                    context = context
+                    navController = navController
                 )
             }
         }

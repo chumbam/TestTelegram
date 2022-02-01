@@ -35,7 +35,6 @@ import ru.isaev.drawerjetpackcompose.ui.menu.DrawerDndTopMenu.TopMenuItems.toolb
 @Composable
 fun SettingScreen() {
 
-   SettingsToolbar()
     Column(
         modifier = Modifier
             .fillMaxSize()
