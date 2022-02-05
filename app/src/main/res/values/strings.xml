@@ -1,3 +1,19 @@
 <resources>
-    <string name="app_name">DrawerJetpackCompose</string>
+    <string name="app_name">Kotogram</string>
+
+<!--    EPNScreen-->
+    <string name="EPNS_invalid_input_format_password">Неверный формат ввода</string>
+    <string name="EPNS_greeting">Welcome</string>
+    <string name="ECNS_placeholder_text">+7 ___ ___ __ __</string>
+
+    <!--    ECScreen-->
+    <string name="ECS_enter_code_text">Введите код</string>
+    <string name="ECS_message_about_sending_text">Мы отправили смс с кодом проверки на ваш телефон</string>
+    <string name="ECS_greeting">Welcome</string>
+    <string name="ECS_placeholder_text">_ _ _ _ _ _</string>
+
+
+<!--    SettingToolbar-->
+    <string name="setting_toolbar_dropdown_menu_item_changeName_text">ChangeName</string>
+    <string name="setting_toolbar_dropdown_menu_item_exit_text">Exit</string>
 </resources>

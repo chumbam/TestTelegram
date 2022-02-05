@@ -6,9 +6,10 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.navigation.NavHostController
 
 @Composable
-fun ContactsScreen(){
+fun ContactsScreen(navController: NavHostController) {
     var count = remember {mutableStateOf(0)}
     Column {
         Text(text = "Contacts = ${count.value}")

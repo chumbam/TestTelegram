@@ -10,10 +10,12 @@ import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
@@ -21,6 +23,8 @@ import com.google.firebase.FirebaseException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
+import kotlinx.coroutines.launch
+import ru.isaev.drawerjetpackcompose.R
 import ru.isaev.drawerjetpackcompose.helpers.*
 import ru.isaev.drawerjetpackcompose.helpers.Colors
 import java.util.concurrent.TimeUnit
@@ -31,6 +35,7 @@ fun EnterPhoneNumberScreen(
     navController: NavHostController
 ) {
     val phoneNumber = remember { mutableStateOf("") }
+    val scope = rememberCoroutineScope()
     val maxChar = 14
     val scaffoldState = rememberScaffoldState(rememberDrawerState(DrawerValue.Closed))
     val context = LocalContext.current
@@ -47,7 +52,7 @@ fun EnterPhoneNumberScreen(
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
                 Auth.signInWithCredential(credential).addOnCompleteListener {
                     if (it.isSuccessful) {
-                        showToast(context = context,message = "Welcome")
+                        showToast(context = context,message = context.getString(R.string.EPNS_greeting))
 
                     } else showToast(context = context ,message = it.exception?.message.toString())
 
@@ -65,18 +70,18 @@ fun EnterPhoneNumberScreen(
             FloatingActionButton(
                 // remember
                 onClick = {
-                    if (phoneNumber.value.isNotEmpty() && phoneNumber.value.length >= 12) {
-                        val options: PhoneAuthOptions = PhoneAuthOptions
-                            .newBuilder(Auth)
-                            .setPhoneNumber(phoneNumber.value)
-                            .setTimeout(60, TimeUnit.SECONDS)
-                            .setActivity(getActivity)
-                            .setCallbacks(mCallback)
-                            .build()
-                        PhoneAuthProvider.verifyPhoneNumber(options)
-                    } else {
-                        showToast(context = context, message = "Неверный формат ввода")
-                    }
+                        if (phoneNumber.value.isNotEmpty() && phoneNumber.value.length >= 12) {
+                            val options: PhoneAuthOptions = PhoneAuthOptions
+                                .newBuilder(Auth)
+                                .setPhoneNumber(phoneNumber.value)
+                                .setTimeout(60, TimeUnit.SECONDS)
+                                .setActivity(getActivity)
+                                .setCallbacks(mCallback)
+                                .build()
+                            Sender.phoneNumber = phoneNumber.value
+                            PhoneAuthProvider.verifyPhoneNumber(options)
+                        } else showToast(context = context, message = context.getString(R.string.EPNS_invalid_input_format_password))
+
                 },
                 shape = CircleShape,
                 backgroundColor = Colors.topBarColor,
@@ -99,7 +104,7 @@ fun EnterPhoneNumberScreen(
                     value = phoneNumber.value,
                     onValueChange = { if (it.length < maxChar) phoneNumber.value = it },
                     keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Phone),
-                    placeholder = { Text(text = "+7 ___ ___ __ __") },
+                    placeholder = { Text(text = stringResource(R.string.ECNS_placeholder_text)) },
                     singleLine = true,
                     modifier = Modifier.fillMaxWidth(0.8f)
                         .padding(start = 16.dp, top = 16.dp, end = 16.dp),

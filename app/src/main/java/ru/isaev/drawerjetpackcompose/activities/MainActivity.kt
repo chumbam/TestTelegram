@@ -10,15 +10,15 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 import ru.isaev.drawerjetpackcompose.helpers.Auth
 import ru.isaev.drawerjetpackcompose.helpers.getActivity
+import ru.isaev.drawerjetpackcompose.helpers.initFirebase
 import ru.isaev.drawerjetpackcompose.ui.menu.DrawerDndTopMenu.DrawerAndTopMenu
 
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val context = applicationContext
         getActivity = this
-        Auth = FirebaseAuth.getInstance()
+        initFirebase()
         setContent {
             MaterialTheme {
                 val scope = rememberCoroutineScope()
@@ -40,6 +40,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+
 }
 
 

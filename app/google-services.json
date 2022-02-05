@@ -2,6 +2,7 @@
   "project_info": {
     "project_number": "1034014053752",
     "project_id": "drawerjetpackcompose",
+    "firebase_url": "https://drawerjetpackcompose-default-rtdb.europe-west1.firebasedatabase.app",
     "storage_bucket": "drawerjetpackcompose.appspot.com"
   },
   "client": [

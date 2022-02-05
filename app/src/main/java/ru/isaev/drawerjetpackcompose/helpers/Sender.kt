@@ -6,4 +6,5 @@ object Sender {
     lateinit var idString: String
 
     lateinit var mToken: PhoneAuthProvider.ForceResendingToken
+    lateinit var phoneNumber: String
 }

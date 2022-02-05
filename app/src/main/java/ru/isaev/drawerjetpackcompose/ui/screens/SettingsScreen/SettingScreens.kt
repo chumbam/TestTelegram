@@ -10,11 +10,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 
 import androidx.compose.material.Divider
-import androidx.compose.material.DropdownMenu
-import androidx.compose.material.DropdownMenuItem
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -28,12 +25,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ru.isaev.drawerjetpackcompose.data.AccountData
 import ru.isaev.drawerjetpackcompose.helpers.Colors
-import androidx.compose.runtime.remember
-import ru.isaev.drawerjetpackcompose.ui.menu.DrawerDndTopMenu.TopMenuItems.toolbar.SettingsToolbar
+import androidx.navigation.NavHostController
 
 
 @Composable
-fun SettingScreen() {
+fun SettingScreen(navController: NavHostController) {
 
     Column(
         modifier = Modifier
@@ -192,8 +188,8 @@ fun ColumnScope.MainSettingsScreen() {
     }
 }
 
-@Composable
-@Preview(name = "SettingScreen")
-fun SettingsScreenPreview() {
-    SettingScreen()
-}
+//@Composable
+//@Preview(name = "SettingScreen")
+//fun SettingsScreenPreview() {
+//    SettingScreen(navController)
+//}
