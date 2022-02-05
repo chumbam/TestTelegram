@@ -33,8 +33,7 @@ fun EnterCodeScreen(navController: NavHostController) {
     val maxChar = 6
     val scope = rememberCoroutineScope()
     val context = LocalContext.current
-    val uId = Auth.currentUser?.uid.toString()
-    val dataMap = mutableMapOf<String, Any>()
+
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -59,11 +58,12 @@ fun EnterCodeScreen(navController: NavHostController) {
             value = code.value,
             onValueChange = {
                 if (it.length <= maxChar) code.value = it
-                if (code.value.length == 6) {
+                if (it.length == maxChar) {
                     val credential = PhoneAuthProvider.getCredential(Sender.idString, code.value)
                     Auth.signInWithCredential(credential).addOnCompleteListener { task ->
                         if (task.isSuccessful) {
-                            Log.e("Tag", "Флаг1")
+                            val uId = Auth.currentUser?.uid.toString()
+                            val dataMap = mutableMapOf<String, Any>()
                             scope.launch {
                                 dataMap[CHILD_ID] = uId
                                 dataMap[CHILD_PHONE] = Sender.phoneNumber
@@ -72,7 +72,6 @@ fun EnterCodeScreen(navController: NavHostController) {
                                 Ref_Database_Root.child(NODE_USER).child(uId)
                                     .updateChildren(dataMap).addOnCompleteListener { taskTwo ->
                                         if (taskTwo.isSuccessful) {
-                                            Log.e("Tag", "Флаг2")
                                             showToast(
                                                 context = context,
                                                 message = context.getString(R.string.ECS_greeting)
@@ -86,10 +85,7 @@ fun EnterCodeScreen(navController: NavHostController) {
                                     }
                             }
 
-
-
-                            navController.navigate("11")
-                            Log.e("Tag", "Флаг3")
+                            navController.navigate("1")
 
                         } else showToast(
                             context = context,
