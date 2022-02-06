@@ -3,6 +3,7 @@ package ru.isaev.drawerjetpackcompose.ui.menu.DrawerDndTopMenu.TopMenuItems.tool
 import androidx.compose.foundation.layout.height
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -19,14 +20,14 @@ import ru.isaev.drawerjetpackcompose.helpers.Colors
 import ru.isaev.drawerjetpackcompose.helpers.NavDrawerItem
 
 @Composable
-fun SettingsToolbar(drawerButtonClick: () -> Unit, navController: NavHostController){
+fun SettingsToolbar(backButtonClick: () -> Unit, navController: NavHostController){
     val showMenu = remember { mutableStateOf(false) }
     TopAppBar(
         title = { Text(text = stringResource(R.string.app_name)) },
 
         navigationIcon = {
-            IconButton(onClick = drawerButtonClick ){
-                Icon(imageVector = Icons.Filled.Menu, contentDescription = "TopBarMenuIcon" )
+            IconButton(onClick = backButtonClick ){
+                Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = "Back" )
             }
         },
 
