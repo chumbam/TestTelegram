@@ -14,7 +14,7 @@ import ru.isaev.drawerjetpackcompose.R
 
 
 @Composable
-fun mToolbar (drawerButtonClick: () -> Unit){
+fun ChatsToolbar (drawerButtonClick: () -> Unit){
     TopAppBar(
         title = { Text(text = stringResource(R.string.app_name)) },
         navigationIcon = {

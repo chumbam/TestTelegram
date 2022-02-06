@@ -16,6 +16,7 @@ import androidx.navigation.NavHostController
 import ru.isaev.drawerjetpackcompose.R
 import ru.isaev.drawerjetpackcompose.helpers.Auth
 import ru.isaev.drawerjetpackcompose.helpers.Colors
+import ru.isaev.drawerjetpackcompose.helpers.NavDrawerItem
 
 @Composable
 fun SettingsToolbar(drawerButtonClick: () -> Unit, navController: NavHostController){
@@ -45,7 +46,7 @@ fun SettingsToolbar(drawerButtonClick: () -> Unit, navController: NavHostControl
                       }
                       DropdownMenuItem(onClick = {
                           Auth.signOut()
-                          navController.navigate("10"){
+                          navController.navigate(NavDrawerItem.EnterPhoneStartScreen.route){
                               //clean all backStack
                               popUpTo(0)
                           }

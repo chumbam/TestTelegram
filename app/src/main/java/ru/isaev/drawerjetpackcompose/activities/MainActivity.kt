@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
                             } else scaffoldState.drawerState.close()
                         }
                     },
+                    backButtonClick = { navController.navigateUp() },
                     scope = scope,
                     navController = navController
                 )

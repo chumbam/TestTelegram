@@ -1,6 +1,5 @@
 package ru.isaev.drawerjetpackcompose.ui.screens.EnterPhoneNumberAndCodeScreen
 
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
@@ -85,7 +84,7 @@ fun EnterCodeScreen(navController: NavHostController) {
                                     }
                             }
 
-                            navController.navigate("1")
+                            navController.navigate(NavDrawerItem.Chats.route)
 
                         } else showToast(
                             context = context,

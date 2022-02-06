@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import ru.isaev.drawerjetpackcompose.helpers.Auth
 import ru.isaev.drawerjetpackcompose.helpers.NavDrawerItem
 import ru.isaev.drawerjetpackcompose.ui.screens.*
+import ru.isaev.drawerjetpackcompose.ui.screens.ChatsScreen.ChatsScreen
 import ru.isaev.drawerjetpackcompose.ui.screens.EnterPhoneNumberAndCodeScreen.EnterCodeScreen
 import ru.isaev.drawerjetpackcompose.ui.screens.EnterPhoneNumberAndCodeScreen.EnterPhoneNumberScreen
 
@@ -15,9 +16,13 @@ import ru.isaev.drawerjetpackcompose.ui.screens.EnterPhoneNumberAndCodeScreen.En
 fun Navigation(navController: NavHostController) {
     NavHost(
         navController = navController, startDestination = if (Auth.currentUser != null) {
-            NavDrawerItem.CreateChannel.route
+            NavDrawerItem.Chats.route
         } else NavDrawerItem.EnterPhoneStartScreen.route
     ) {
+
+        composable(route = NavDrawerItem.Chats.route){
+            ChatsScreen()
+        }
 
         composable(route = NavDrawerItem.EnterCodeScreen.route) {
             EnterCodeScreen(navController)

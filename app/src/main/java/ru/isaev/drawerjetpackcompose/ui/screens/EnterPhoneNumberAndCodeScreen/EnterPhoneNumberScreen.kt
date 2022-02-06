@@ -46,7 +46,7 @@ fun EnterPhoneNumberScreen(
             override fun onCodeSent(id: String, token: PhoneAuthProvider.ForceResendingToken) {
                 Sender.idString = id
                 Sender.mToken = token
-                navController.navigate("11")
+                navController.navigate(NavDrawerItem.EnterCodeScreen.route)
             }
 
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
