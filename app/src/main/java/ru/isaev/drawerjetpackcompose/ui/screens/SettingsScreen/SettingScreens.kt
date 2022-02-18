@@ -20,7 +20,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ru.isaev.drawerjetpackcompose.data.AccountData
@@ -48,7 +47,7 @@ fun TopSettingScreen() {
         modifier = Modifier
             .fillMaxWidth()
             .height(100.dp)
-            .background(color = Colors.topBarColor),
+            .background(color = Colors.KotogramMainColor),
         contentAlignment = Alignment.CenterStart
     ) {
         Row(horizontalArrangement = Arrangement.Start) {
@@ -60,7 +59,7 @@ fun TopSettingScreen() {
                     .size(55.dp)
                     .align(Alignment.CenterVertically)
                     .clip(shape = CircleShape)
-                    .border(width = 1.dp, color = Colors.topBarColor, shape = CircleShape),
+                    .border(width = 1.dp, color = Colors.KotogramMainColor, shape = CircleShape),
                 contentScale = ContentScale.Crop
             )
             Column(modifier = Modifier.align(Alignment.CenterVertically)) {
@@ -92,7 +91,7 @@ fun ColumnScope.MainSettingsScreen() {
     Text(
         text = "Аккаунт",
         modifier = Modifier.padding(top = 16.dp, start = 16.dp).fillMaxWidth(),
-        style = TextStyle(Colors.topBarColor),
+        style = TextStyle(Colors.KotogramMainColor),
         fontSize = 14.sp
     )
     Column(

@@ -1,24 +1,21 @@
 package ru.isaev.drawerjetpackcompose.ui.menu.DrawerDndTopMenu
 
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.Scaffold
 import androidx.compose.material.ScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import kotlinx.coroutines.CoroutineScope
 import ru.isaev.drawerjetpackcompose.helpers.NavDrawerItem
 import ru.isaev.drawerjetpackcompose.other.Drawer
-
 import ru.isaev.drawerjetpackcompose.other.Navigation
 import ru.isaev.drawerjetpackcompose.ui.menu.DrawerDndTopMenu.TopMenuItems.toolbar.SettingsToolbar
 import ru.isaev.drawerjetpackcompose.ui.menu.DrawerDndTopMenu.TopMenuItems.toolbar.ChatsToolbar
 import ru.isaev.drawerjetpackcompose.ui.menu.DrawerDndTopMenu.TopMenuItems.toolbar.mToolbar
+import ru.isaev.drawerjetpackcompose.ui.screens.SettingsScreen.ChangeNameScreenTollbar
+import ru.isaev.drawerjetpackcompose.ui.screens.SettingsScreen.SettingViewModel
 
 
 @Composable
@@ -27,7 +24,8 @@ fun DrawerAndTopMenu(
     drawerButtonClick: () -> Unit,
     backButtonClick: () -> Unit,
     scope: CoroutineScope,
-    navController: NavHostController
+    navController: NavHostController,
+    viewModel: SettingViewModel
 ) {
 
 
@@ -42,20 +40,26 @@ fun DrawerAndTopMenu(
                     backButtonClick = backButtonClick,
                     navController = navController
                 )
+                NavDrawerItem.ChangeNameScreen.route -> ChangeNameScreenTollbar(
+                    viewModel = viewModel,
+                    navController = navController
+                )
                 else -> mToolbar(backButtonClick = backButtonClick)
 
             }
         },
-        drawerContent = { if (currentRoute(navController = navController) == NavDrawerItem.Chats.route) {
-            Drawer(
-                scope = scope,
-                scaffoldState = scaffoldState,
-                navController = navController
-            )
-        } else null },
+        drawerContent = {
+            if (currentRoute(navController = navController) == NavDrawerItem.Chats.route) {
+                Drawer(
+                    scope = scope,
+                    scaffoldState = scaffoldState,
+                    navController = navController
+                )
+            }
+        },
         drawerGesturesEnabled = currentRoute(navController = navController) == NavDrawerItem.Chats.route
     ) {
-        Navigation(navController = navController)
+        Navigation(navController = navController, viewModel = viewModel)
 
     }
 }

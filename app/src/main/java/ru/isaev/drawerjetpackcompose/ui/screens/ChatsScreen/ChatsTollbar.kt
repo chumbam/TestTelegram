@@ -25,7 +25,7 @@ fun ChatsToolbar (drawerButtonClick: () -> Unit){
         actions = {
 
         },
-        backgroundColor = Colors.topBarColor,
+        backgroundColor = Colors.KotogramMainColor,
         contentColor = Color.White,
         elevation = 4.dp,
         modifier = Modifier.fillMaxWidth().height(58.dp)

@@ -7,9 +7,13 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import ru.isaev.drawerjetpackcompose.helpers.Colors
 import ru.isaev.drawerjetpackcompose.helpers.NavDrawerItem
 
 @Composable
@@ -33,14 +37,16 @@ fun DrawerMainItem(item: NavDrawerItem, onItemClick: (NavDrawerItem) -> Unit, mo
                 modifier = Modifier
                     .padding(start = 4.dp)
                     .weight(1f)
-                    .size(20.dp)
+                    .size(20.dp),
+                colorFilter = ColorFilter.tint(color = Colors.drawerIconsColor)
             )
             Text(
                 text = item.title,
                 modifier = Modifier
                     .padding(start = 8.dp)
                     .weight(5f),
-                fontSize = 12.sp
+                fontSize = 12.sp,
+                fontWeight = FontWeight.Bold
             )
         }
     }

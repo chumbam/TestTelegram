@@ -8,7 +8,6 @@ import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Menu
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -30,7 +29,7 @@ fun mToolbar(backButtonClick: () -> Unit){
         actions = {
 
         },
-        backgroundColor = Colors.topBarColor,
+        backgroundColor = Colors.KotogramMainColor,
         contentColor = Color.White,
         elevation = 4.dp,
         modifier = Modifier.fillMaxWidth().height(58.dp)

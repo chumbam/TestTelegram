@@ -8,7 +8,7 @@ sealed class NavDrawerItem(val title: String, val icon: Int, val route: String) 
 
     object CreateGroup : NavDrawerItem(
         title = "Создать группу",
-        icon = R.drawable.ic_menu_create__groups,
+        icon = R.drawable.ic_menu_create_groups,
         "CreateGroup"
     )
 
@@ -42,7 +42,8 @@ sealed class NavDrawerItem(val title: String, val icon: Int, val route: String) 
         NavDrawerItem(title = "Вопросы о телеграмм", icon = R.drawable.ic_menu_help, "FaqTelegram")
 
     // Temp
-    object EnterPhoneStartScreen : NavDrawerItem(title = "", icon = 1, route = "EnterPhone")
-    object EnterCodeScreen : NavDrawerItem(title = "", icon = 1, route = "EnterPhoneCode")
+    object EnterPhoneStartScreen: NavDrawerItem(title = "", icon = 1, route = "EnterPhone")
+    object EnterCodeScreen: NavDrawerItem(title = "", icon = 1, route = "EnterPhoneCode")
+    object ChangeNameScreen: NavDrawerItem(title = "", icon = 1, route = "ChangeNameScreen")
 
 }

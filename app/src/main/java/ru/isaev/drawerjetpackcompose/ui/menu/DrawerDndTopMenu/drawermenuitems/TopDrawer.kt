@@ -41,7 +41,7 @@ fun TopDrawer(modifier: androidx.compose.ui.Modifier) {
                     .padding(top = 6.dp)
                     .clip(shape = CircleShape)
                     .size(66.dp)
-                    .border(width = 1.dp, color = Colors.topBarColor, shape = CircleShape),
+                    .border(width = 1.dp, color = Colors.KotogramMainColor, shape = CircleShape),
                 contentDescription = "AccountImage",
                 contentScale = ContentScale.Crop,
 

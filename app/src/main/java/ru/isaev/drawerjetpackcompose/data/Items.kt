@@ -9,10 +9,11 @@ object Items {
     val items = listOf<String>("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "01")
 
 
+    //deprecated
     val drawerItems = listOf<DataDrawerMenuItems>(
         DataDrawerMenuItems(
             title = "Создать группу",
-            icon = R.drawable.ic_menu_create__groups,
+            icon = R.drawable.ic_menu_create_groups,
             "1"
         ),
         DataDrawerMenuItems(
@@ -27,6 +28,7 @@ object Items {
         DataDrawerMenuItems(title = "Настройки", icon = R.drawable.ic_menu_settings, "7"),
     )
 
+    //
     val drawerItemsSecond = listOf<DataDrawerMenuItems>(
         DataDrawerMenuItems(title = "Пригласить Друзей", icon = R.drawable.ic_menu_invate, "8"),
         DataDrawerMenuItems(title = "Вопросы о телеграмм", icon = R.drawable.ic_menu_help, "9")

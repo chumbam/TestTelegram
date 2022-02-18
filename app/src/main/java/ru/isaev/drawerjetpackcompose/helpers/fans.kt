@@ -16,3 +16,7 @@ fun restartActivity( act: MainActivity){
     act.finish()
     act.startActivity(intent)
 }
+fun initNavControlled(){
+
+}
+

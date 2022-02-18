@@ -23,7 +23,6 @@ import com.google.firebase.FirebaseException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
-import kotlinx.coroutines.launch
 import ru.isaev.drawerjetpackcompose.R
 import ru.isaev.drawerjetpackcompose.helpers.*
 import ru.isaev.drawerjetpackcompose.helpers.Colors
@@ -52,9 +51,12 @@ fun EnterPhoneNumberScreen(
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
                 Auth.signInWithCredential(credential).addOnCompleteListener {
                     if (it.isSuccessful) {
-                        showToast(context = context,message = context.getString(R.string.EPNS_greeting))
+                        showToast(
+                            context = context,
+                            message = context.getString(R.string.EPNS_greeting)
+                        )
 
-                    } else showToast(context = context ,message = it.exception?.message.toString())
+                    } else showToast(context = context, message = it.exception?.message.toString())
 
                 }
             }
@@ -70,21 +72,24 @@ fun EnterPhoneNumberScreen(
             FloatingActionButton(
                 // remember
                 onClick = {
-                        if (phoneNumber.value.isNotEmpty() && phoneNumber.value.length >= 12) {
-                            val options: PhoneAuthOptions = PhoneAuthOptions
-                                .newBuilder(Auth)
-                                .setPhoneNumber(phoneNumber.value)
-                                .setTimeout(60, TimeUnit.SECONDS)
-                                .setActivity(getActivity)
-                                .setCallbacks(mCallback)
-                                .build()
-                            Sender.phoneNumber = phoneNumber.value
-                            PhoneAuthProvider.verifyPhoneNumber(options)
-                        } else showToast(context = context, message = context.getString(R.string.EPNS_invalid_input_format_password))
+                    if (phoneNumber.value.isNotEmpty() && phoneNumber.value.length >= 12) {
+                        val options: PhoneAuthOptions = PhoneAuthOptions
+                            .newBuilder(Auth)
+                            .setPhoneNumber(phoneNumber.value)
+                            .setTimeout(60, TimeUnit.SECONDS)
+                            .setActivity(getActivity)
+                            .setCallbacks(mCallback)
+                            .build()
+                        Sender.phoneNumber = phoneNumber.value
+                        PhoneAuthProvider.verifyPhoneNumber(options)
+                    } else showToast(
+                        context = context,
+                        message = context.getString(R.string.EPNS_invalid_input_format_password)
+                    )
 
                 },
                 shape = CircleShape,
-                backgroundColor = Colors.topBarColor,
+                backgroundColor = Colors.KotogramMainColor,
                 contentColor = Color.White
             ) {
                 Icon(Icons.Default.ArrowForward, "")
@@ -109,8 +114,8 @@ fun EnterPhoneNumberScreen(
                     modifier = Modifier.fillMaxWidth(0.8f)
                         .padding(start = 16.dp, top = 16.dp, end = 16.dp),
                     colors = TextFieldDefaults.outlinedTextFieldColors(
-                        focusedBorderColor = Colors.topBarColor,
-                        unfocusedBorderColor = Colors.topBarColor
+                        focusedBorderColor = Colors.KotogramMainColor,
+                        unfocusedBorderColor = Colors.KotogramMainColor
                     )
 
                 )

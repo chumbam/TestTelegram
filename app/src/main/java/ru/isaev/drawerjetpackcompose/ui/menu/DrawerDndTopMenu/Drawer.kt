@@ -15,7 +15,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import ru.isaev.drawerjetpackcompose.data.Items
 import ru.isaev.drawerjetpackcompose.helpers.Colors
-import ru.isaev.drawerjetpackcompose.helpers.NavDrawerItem
 import ru.isaev.drawerjetpackcompose.ui.menu.DrawerDndTopMenu.drawermenuitems.TopDrawer
 
 @Composable
@@ -29,7 +28,7 @@ fun ColumnScope.Drawer(
     TopDrawer(
         modifier = Modifier
             .weight(1f)
-            .background(color = Colors.topBarColor)
+            .background(color = Colors.KotogramMainColor)
             .fillMaxWidth()
     )
 

@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Menu
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -42,7 +41,10 @@ fun SettingsToolbar(backButtonClick: () -> Unit, navController: NavHostControlle
                       onDismissRequest = {showMenu.value = false}
 
                   ){
-                      DropdownMenuItem(onClick = {}){
+                      DropdownMenuItem(onClick = {
+                          navController.navigate(NavDrawerItem.ChangeNameScreen.route)
+                      }){
+                          Icon(painter = painterResource(R.drawable.ic_btn_action_menu_change_name), contentDescription = "ChangeName")
                           Text(text = stringResource(R.string.setting_toolbar_dropdown_menu_item_changeName_text))
                       }
                       DropdownMenuItem(onClick = {
@@ -53,11 +55,12 @@ fun SettingsToolbar(backButtonClick: () -> Unit, navController: NavHostControlle
                           }
 
                       }){
+                          Icon(painter = painterResource(R.drawable.ic_btn_action_menu_exit), contentDescription = "ExitAccount")
                           Text(text = stringResource(R.string.setting_toolbar_dropdown_menu_item_exit_text))
                       }
                   }
         },
-        backgroundColor = Colors.topBarColor,
+        backgroundColor = Colors.KotogramMainColor,
         contentColor = Color.White,
         elevation = 4.dp,
         modifier = Modifier.height(58.dp)

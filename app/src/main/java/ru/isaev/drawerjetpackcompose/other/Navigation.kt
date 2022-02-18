@@ -10,17 +10,19 @@ import ru.isaev.drawerjetpackcompose.ui.screens.*
 import ru.isaev.drawerjetpackcompose.ui.screens.ChatsScreen.ChatsScreen
 import ru.isaev.drawerjetpackcompose.ui.screens.EnterPhoneNumberAndCodeScreen.EnterCodeScreen
 import ru.isaev.drawerjetpackcompose.ui.screens.EnterPhoneNumberAndCodeScreen.EnterPhoneNumberScreen
+import ru.isaev.drawerjetpackcompose.ui.screens.SettingsScreen.ChangeNameScreen
+import ru.isaev.drawerjetpackcompose.ui.screens.SettingsScreen.SettingViewModel
 
 
 @Composable
-fun Navigation(navController: NavHostController) {
+fun Navigation(navController: NavHostController, viewModel: SettingViewModel) {
     NavHost(
         navController = navController, startDestination = if (Auth.currentUser != null) {
             NavDrawerItem.Chats.route
         } else NavDrawerItem.EnterPhoneStartScreen.route
     ) {
 
-        composable(route = NavDrawerItem.Chats.route){
+        composable(route = NavDrawerItem.Chats.route) {
             ChatsScreen()
         }
 
@@ -58,6 +60,9 @@ fun Navigation(navController: NavHostController) {
         }
         composable(route = NavDrawerItem.TelegramFaq.route) {
             TelegramFaqScreen(navController)
+        }
+        composable(route = NavDrawerItem.ChangeNameScreen.route) {
+            ChangeNameScreen(viewModel)
         }
 
 
