@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.sp
 import ru.isaev.drawerjetpackcompose.data.Items.drawerItems
 import ru.isaev.drawerjetpackcompose.data.Items.drawerItemsSecond
 
+//deprecated
 @Composable
 fun MainDrawer(modifier: Modifier) {
 

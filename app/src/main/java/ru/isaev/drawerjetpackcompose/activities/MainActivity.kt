@@ -12,17 +12,20 @@ import kotlinx.coroutines.launch
 import ru.isaev.drawerjetpackcompose.helpers.Auth
 import ru.isaev.drawerjetpackcompose.helpers.getActivity
 import ru.isaev.drawerjetpackcompose.helpers.initFirebase
+import ru.isaev.drawerjetpackcompose.helpers.initUsers
 import ru.isaev.drawerjetpackcompose.ui.menu.DrawerDndTopMenu.DrawerAndTopMenu
 import ru.isaev.drawerjetpackcompose.ui.screens.SettingsScreen.SettingViewModel
 
 
 class MainActivity : AppCompatActivity() {
 
-    private  val viewModel: SettingViewModel by viewModels()
+    private val viewModel: SettingViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         getActivity = this
         initFirebase()
+        initUsers(viewModel)
         setContent {
             MaterialTheme {
                 val scope = rememberCoroutineScope()
