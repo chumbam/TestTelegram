@@ -9,12 +9,13 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import kotlinx.coroutines.CoroutineScope
 import ru.isaev.drawerjetpackcompose.helpers.NavDrawerItem
-import ru.isaev.drawerjetpackcompose.other.Drawer
-import ru.isaev.drawerjetpackcompose.other.Navigation
-import ru.isaev.drawerjetpackcompose.ui.menu.DrawerDndTopMenu.TopMenuItems.toolbar.SettingsToolbar
-import ru.isaev.drawerjetpackcompose.ui.menu.DrawerDndTopMenu.TopMenuItems.toolbar.ChatsToolbar
+import ru.isaev.drawerjetpackcompose.Navigation.Drawer
+import ru.isaev.drawerjetpackcompose.Navigation.Navigation
+import ru.isaev.drawerjetpackcompose.ui.screens.SettingsScreen.SettingsToolbar
+import ru.isaev.drawerjetpackcompose.ui.screens.ChatsScreen.ChatsToolbar
 import ru.isaev.drawerjetpackcompose.ui.menu.DrawerDndTopMenu.TopMenuItems.toolbar.mToolbar
-import ru.isaev.drawerjetpackcompose.ui.screens.SettingsScreen.ChangeNameScreenTollbar
+import ru.isaev.drawerjetpackcompose.ui.screens.SettingsScreen.ChangeNameScreen.ChangeNameScreenTollbar
+import ru.isaev.drawerjetpackcompose.ui.screens.SettingsScreen.ChangeUsernameScreen.ChangeUserameScreenTollbar
 import ru.isaev.drawerjetpackcompose.ui.screens.SettingsScreen.SettingViewModel
 
 
@@ -41,6 +42,10 @@ fun DrawerAndTopMenu(
                     navController = navController
                 )
                 NavDrawerItem.ChangeNameScreen.route -> ChangeNameScreenTollbar(
+                    viewModel = viewModel,
+                    navController = navController
+                )
+                NavDrawerItem.ChangeUsernameScreen.route -> ChangeUserameScreenTollbar(
                     viewModel = viewModel,
                     navController = navController
                 )

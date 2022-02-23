@@ -1,4 +1,4 @@
-package ru.isaev.drawerjetpackcompose.other
+package ru.isaev.drawerjetpackcompose.Navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
@@ -6,12 +6,21 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import ru.isaev.drawerjetpackcompose.helpers.Auth
 import ru.isaev.drawerjetpackcompose.helpers.NavDrawerItem
-import ru.isaev.drawerjetpackcompose.ui.screens.*
+import ru.isaev.drawerjetpackcompose.ui.screens.CallsScreen.CallsScreen
 import ru.isaev.drawerjetpackcompose.ui.screens.ChatsScreen.ChatsScreen
+import ru.isaev.drawerjetpackcompose.ui.screens.ContactsScreen.ContactsScreen
 import ru.isaev.drawerjetpackcompose.ui.screens.EnterPhoneNumberAndCodeScreen.EnterCodeScreen
 import ru.isaev.drawerjetpackcompose.ui.screens.EnterPhoneNumberAndCodeScreen.EnterPhoneNumberScreen
-import ru.isaev.drawerjetpackcompose.ui.screens.SettingsScreen.ChangeNameScreen
+import ru.isaev.drawerjetpackcompose.ui.screens.FavoritesScreen.FavoritesScreen
+import ru.isaev.drawerjetpackcompose.ui.screens.InviteFriendScreen.InviteFriendScreen
+import ru.isaev.drawerjetpackcompose.ui.screens.NewChannelScreen.NewChannelScreen
+import ru.isaev.drawerjetpackcompose.ui.screens.NewGroupScreen.NewGroupScreen
+import ru.isaev.drawerjetpackcompose.ui.screens.NewSecretChatScreen.NewSecretChatScreen
+import ru.isaev.drawerjetpackcompose.ui.screens.SettingsScreen.ChangeNameScreen.ChangeNameScreen
+import ru.isaev.drawerjetpackcompose.ui.screens.SettingsScreen.ChangeUsernameScreen.ChangeUsernameScreen
+import ru.isaev.drawerjetpackcompose.ui.screens.SettingsScreen.SettingScreen
 import ru.isaev.drawerjetpackcompose.ui.screens.SettingsScreen.SettingViewModel
+import ru.isaev.drawerjetpackcompose.ui.screens.TelegramFaqScreen.TelegramFaqScreen
 
 
 @Composable
@@ -27,42 +36,45 @@ fun Navigation(navController: NavHostController, viewModel: SettingViewModel) {
         }
 
         composable(route = NavDrawerItem.EnterCodeScreen.route) {
-            EnterCodeScreen(navController)
+            EnterCodeScreen(navController = navController)
         }
 
         composable(route = NavDrawerItem.EnterPhoneStartScreen.route) {
-            EnterPhoneNumberScreen(navController)
+            EnterPhoneNumberScreen(navController = navController)
         }
 
         composable(route = NavDrawerItem.CreateGroup.route) {
-            NewGroupScreen(navController)
+            NewGroupScreen(navController = navController)
         }
         composable(route = NavDrawerItem.CreateSecretChat.route) {
-            NewSecretChatScreen(navController)
+            NewSecretChatScreen(navController = navController)
         }
         composable(route = NavDrawerItem.CreateChannel.route) {
-            NewChannelScreen(navController)
+            NewChannelScreen(navController = navController)
         }
         composable(route = NavDrawerItem.Contacts.route) {
-            ContactsScreen(navController)
+            ContactsScreen(navController = navController)
         }
         composable(route = NavDrawerItem.Calls.route) {
-            CallsScreen(navController)
+            CallsScreen(navController = navController)
         }
         composable(route = NavDrawerItem.Favorites.route) {
-            FavoritesScreen(navController)
+            FavoritesScreen(navController = navController)
         }
         composable(route = NavDrawerItem.Settings.route) {
-            SettingScreen(navController)
+            SettingScreen(navController = navController,viewModel = viewModel)
         }
         composable(route = NavDrawerItem.InviteFriend.route) {
-            InviteFriendScreen(navController)
+            InviteFriendScreen(navController = navController)
         }
         composable(route = NavDrawerItem.TelegramFaq.route) {
-            TelegramFaqScreen(navController)
+            TelegramFaqScreen(navController = navController)
         }
         composable(route = NavDrawerItem.ChangeNameScreen.route) {
             ChangeNameScreen(viewModel)
+        }
+        composable(route = NavDrawerItem.ChangeUsernameScreen.route) {
+            ChangeUsernameScreen(viewModel = viewModel)
         }
 
 

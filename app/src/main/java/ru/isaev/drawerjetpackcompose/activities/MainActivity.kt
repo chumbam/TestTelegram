@@ -7,9 +7,7 @@ import androidx.activity.viewModels
 import androidx.compose.material.*
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.navigation.compose.rememberNavController
-import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
-import ru.isaev.drawerjetpackcompose.helpers.Auth
 import ru.isaev.drawerjetpackcompose.helpers.getActivity
 import ru.isaev.drawerjetpackcompose.helpers.initFirebase
 import ru.isaev.drawerjetpackcompose.helpers.initUsers

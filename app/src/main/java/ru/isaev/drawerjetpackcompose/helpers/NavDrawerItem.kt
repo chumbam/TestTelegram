@@ -45,5 +45,6 @@ sealed class NavDrawerItem(val title: String, val icon: Int, val route: String) 
     object EnterPhoneStartScreen: NavDrawerItem(title = "", icon = 1, route = "EnterPhone")
     object EnterCodeScreen: NavDrawerItem(title = "", icon = 1, route = "EnterPhoneCode")
     object ChangeNameScreen: NavDrawerItem(title = "", icon = 1, route = "ChangeNameScreen")
+    object ChangeUsernameScreen: NavDrawerItem(title = "", icon = 1, route = "ChangeUsernameScreen")
 
 }

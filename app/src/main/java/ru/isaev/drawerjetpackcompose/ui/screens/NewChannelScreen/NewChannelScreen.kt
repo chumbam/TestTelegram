@@ -1,4 +1,4 @@
-package ru.isaev.drawerjetpackcompose.ui.screens
+package ru.isaev.drawerjetpackcompose.ui.screens.NewChannelScreen
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable

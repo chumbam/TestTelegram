@@ -1,4 +1,4 @@
-package ru.isaev.drawerjetpackcompose.ui.screens
+package ru.isaev.drawerjetpackcompose.ui.screens.SettingsScreen
 
 
 import androidx.compose.foundation.Image
@@ -18,6 +18,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
@@ -25,10 +26,14 @@ import androidx.compose.ui.unit.sp
 import ru.isaev.drawerjetpackcompose.data.AccountData
 import ru.isaev.drawerjetpackcompose.helpers.Colors
 import androidx.navigation.NavHostController
+import ru.isaev.drawerjetpackcompose.R
+import ru.isaev.drawerjetpackcompose.helpers.NavDrawerItem
+import ru.isaev.drawerjetpackcompose.helpers.User
+import java.util.*
 
 
 @Composable
-fun SettingScreen(navController: NavHostController) {
+fun SettingScreen(navController: NavHostController, viewModel: SettingViewModel) {
 
     Column(
         modifier = Modifier
@@ -36,7 +41,7 @@ fun SettingScreen(navController: NavHostController) {
             .background(color = Color.White)
     ) {
         TopSettingScreen()
-        MainSettingsScreen()
+        MainSettingsScreen(navController = navController)
 
     }
 }
@@ -64,7 +69,7 @@ fun TopSettingScreen() {
             )
             Column(modifier = Modifier.align(Alignment.CenterVertically)) {
                 Text(
-                    text = AccountData.userfirst.name,
+                    text = User.fullname,
                     fontSize = 16.sp,
                     style = TextStyle(
                         Color.White,
@@ -74,7 +79,7 @@ fun TopSettingScreen() {
                 )
 
                 Text(
-                    text = "В сети",
+                    text = stringResource(R.string.SettingScreen_onlineStatus_text),
                     fontSize = 10.sp,
                     style = TextStyle(Color.White),
                     modifier = Modifier.padding(start = 16.dp)
@@ -87,7 +92,7 @@ fun TopSettingScreen() {
 
 
 @Composable
-fun ColumnScope.MainSettingsScreen() {
+fun ColumnScope.MainSettingsScreen(navController: NavHostController) {
     Text(
         text = "Аккаунт",
         modifier = Modifier.padding(top = 16.dp, start = 16.dp).fillMaxWidth(),
@@ -97,17 +102,17 @@ fun ColumnScope.MainSettingsScreen() {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable{}
+            .clickable {}
     ) {
 
         Text(
-            text = "+79991111111",
+            text = User.phone,
             modifier = Modifier.padding(start = 16.dp, top = 10.dp),
             style = TextStyle(Color.Black)
         )
 
         Text(
-            text = "Нажмите, чтобы изменить номер телефона",
+            text = stringResource(R.string.SettingScreen_change_text),
             modifier = Modifier.padding(start = 16.dp),
             style = TextStyle(
                 Colors.descriptionTextColor,
@@ -127,18 +132,18 @@ fun ColumnScope.MainSettingsScreen() {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable{}
+            .clickable {navController.navigate(route = NavDrawerItem.ChangeUsernameScreen.route)}
 
     ) {
 
         Text(
-            text = "IvanIvanov",
+            text = User.username.lowercase(Locale.getDefault()),
             modifier = Modifier.padding(start = 16.dp, top = 10.dp),
             style = TextStyle(Color.Black)
         )
 
         Text(
-            text = "Имя пользователя",
+            text = stringResource(R.string.SettingScreen_change_name_text),
             modifier = Modifier.padding(start = 16.dp),
             style = TextStyle(
                 Colors.descriptionTextColor,
@@ -158,12 +163,12 @@ fun ColumnScope.MainSettingsScreen() {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable{}
+            .clickable {}
 
     ) {
 
         Text(
-            text = "О себе",
+            text = User.bio,
             modifier = Modifier.padding(start = 16.dp, top = 10.dp),
             style = TextStyle(Color.Black)
         )

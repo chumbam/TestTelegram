@@ -1,4 +1,4 @@
-package ru.isaev.drawerjetpackcompose.ui.screens.SettingsScreen
+package ru.isaev.drawerjetpackcompose.ui.screens.SettingsScreen.ChangeNameScreen
 
 import androidx.compose.foundation.layout.height
 import androidx.compose.material.*
@@ -13,7 +13,9 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import ru.isaev.drawerjetpackcompose.R
 import ru.isaev.drawerjetpackcompose.helpers.Colors
+import ru.isaev.drawerjetpackcompose.helpers.User
 import ru.isaev.drawerjetpackcompose.helpers.showToast
+import ru.isaev.drawerjetpackcompose.ui.screens.SettingsScreen.SettingViewModel
 
 
 @Composable
@@ -32,6 +34,7 @@ fun ChangeNameScreenTollbar(viewModel: SettingViewModel, navController: NavHostC
                 else {
                     viewModel.fullname = "${viewModel.name.value} ${viewModel.surname.value}"
                     viewModel.changeFullName()
+                    User.fullname = viewModel.fullname
                     navController.navigateUp()
                 }
             }) {

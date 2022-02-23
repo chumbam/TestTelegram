@@ -1,4 +1,4 @@
-package ru.isaev.drawerjetpackcompose.other
+package ru.isaev.drawerjetpackcompose.Navigation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column

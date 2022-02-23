@@ -1,4 +1,4 @@
-package ru.isaev.drawerjetpackcompose.ui.screens
+package ru.isaev.drawerjetpackcompose.ui.screens.NewSecretChatScreen
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable

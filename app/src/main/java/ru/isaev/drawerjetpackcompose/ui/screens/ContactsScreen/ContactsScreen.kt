@@ -1,4 +1,4 @@
-package ru.isaev.drawerjetpackcompose.ui.screens
+package ru.isaev.drawerjetpackcompose.ui.screens.ContactsScreen
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Button

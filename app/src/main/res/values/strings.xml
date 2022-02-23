@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Kotogram</string>
 
-<!--    EPNScreen-->
+    <!--    EPNScreen-->
     <string name="EPNS_invalid_input_format_password">Неверный формат ввода</string>
     <string name="EPNS_greeting">Welcome</string>
     <string name="ECNS_placeholder_text">+7 ___ ___ __ __</string>
@@ -13,7 +13,22 @@
     <string name="ECS_placeholder_text">_ _ _ _ _ _</string>
 
 
-<!--    SettingToolbar-->
+    <!--    SettingToolbar-->
     <string name="setting_toolbar_dropdown_menu_item_changeName_text">ChangeName</string>
     <string name="setting_toolbar_dropdown_menu_item_exit_text">Exit</string>
+
+
+    <!--    SettingScreen-->
+    <string name="SettingScreen_change_text">Нажмите, чтобы изменить номер телефона</string>
+    <string name="SettingScreen_change_name_text">Имя пользователя</string>
+    <string name="SettingScreen_bio_text">О себе</string>
+    <string name="SettingScreen_onlineStatus_text">В сети</string>
+
+    <!--    ChangeUsernameScreen-->
+    <string name="succesful_change_username_toast_message">Имя пользователя изменено</string>
+    <string name="ChangenameScreen_placeholder_text">Username</string>
+
+    <!--    ChangeUsernameToolbar-->
+    <string name="ChangeUsernameScreenToolbar_Nickname_cant_be_empty_toast_text">Никнейм не может быть пустым</string>
+    <string name="ChangeUsernameScreenToolbar_usernameisbusy_toast_text">Имя пользователя занято</string>
 </resources>

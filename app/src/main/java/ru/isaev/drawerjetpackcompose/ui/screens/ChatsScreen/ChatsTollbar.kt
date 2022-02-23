@@ -1,4 +1,4 @@
-package ru.isaev.drawerjetpackcompose.ui.menu.DrawerDndTopMenu.TopMenuItems.toolbar
+package ru.isaev.drawerjetpackcompose.ui.screens.ChatsScreen
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.material.*

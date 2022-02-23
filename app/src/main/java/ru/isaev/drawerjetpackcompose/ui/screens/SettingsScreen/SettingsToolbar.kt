@@ -1,4 +1,4 @@
-package ru.isaev.drawerjetpackcompose.ui.menu.DrawerDndTopMenu.TopMenuItems.toolbar
+package ru.isaev.drawerjetpackcompose.ui.screens.SettingsScreen
 
 import androidx.compose.foundation.layout.height
 import androidx.compose.material.*

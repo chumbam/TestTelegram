@@ -13,7 +13,10 @@ lateinit var Ref_Database_Root: DatabaseReference
 lateinit var Uid: String
 lateinit var User:Users
 
+const val NODE_USERNAME = "username"
 const val NODE_USER = "users"
+
+
 const val CHILD_ID = "id"
 const val CHILD_PHONE = "phone"
 const val CHILD_USERNAME = "username"
@@ -36,8 +39,10 @@ fun initUsers(viewModel: SettingViewModel){
                     User = snapshot.getValue(Users::class.java) ?: Users()
 
                     val fullnameList = User.fullname.split(" ")
+                    val username = User.username
                     viewModel._name.value = fullnameList[0]
                     viewModel._surname.value = fullnameList[1]
+                    viewModel._username.value =  username
 
                 }
 
